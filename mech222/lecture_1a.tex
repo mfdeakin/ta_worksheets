@@ -13,15 +13,96 @@
 \setmathfont{Latin Modern Math}
 
 \pagestyle{fancy}
-\rhead{Mech 222 Mathematics Worksheets}
+\rhead{Mech 222 Mathematics Worksheets\\ Lecture 1, 2}
 
 \input{preamble_common.tex}
 
 \begin{document}
-\begin{section}{Integration Review - Substitution, Integration by Parts}
-  Solve the following integrals:
+\section*{Integration Review - Substitution, Integration by Parts}
+  \subsection*{Problems}
+  Compute the following integrals:
   \begin{enumerate}
-    \item $\int \limits_{0}^{1} e^{\sin(x)} \cos(x) \dx$
+    \item $\int \limits_{0}^{\pi / 4} e^{\tan(x) + 1} \sec^2(x) \dx$\\
+      \newline
+      \newline
+
+    \item $\int \limits_{0}^{\pi / 4} e^{\tan(x) + y} \sec^2(x) \dx$\\
+      \newline
+      \newline
+
+    \item $\int \limits_{0}^{1} e^{\tan(x) + y} \dy$\\
+      \newline
+      \newline
+
+    \item $\int \limits_{0}^{1} x e^{x} + y \dx$\\
+      \newline
+      \newline
+
+    \item Challenge: $\int \limits_{0}^{1} x^2 y^{x} \dx$\\
+      \newline
+      \newline
   \end{enumerate}
-\end{section}
+
+\section*{Iterated Integrals}
+  Recall that to evaluate $\int \limits_{a}^{b} \int \limits_{c(y)}^{d(y)} f(x, y) \dx \dy$,
+  we can just compute $g(y) = \int \limits_{c(y)}^{d(y)} f(x, y) \dx$, and then the solution is $\int \limits_{a}^{b} g(y) \dy$.
+
+  \subsection*{Example}
+  \begin{align*}
+    & \int \limits_{0}^{1} \int \limits_{0}^{2} e^{x} y^2 \dx \dy\\
+    & g(y) = \int \limits_{0}^{2} e^{x} y^2 + 1 \dx = e^x y^2 + x \bigg \rvert_{x = 0}^{2} = (e^{2} - e^{0}) y^2 + (2 - 0)
+  \end{align*}
+  Then
+  \begin{align*}
+    & \int \limits_{0}^{1} \int \limits_{0}^{2} e^{x} y^2 \dx \dy = \int \limits_{0}^{1} g(y) \dy\\
+    & = \int \limits_{0}^{1} (e^{2} - 1) y^2 + 2 \dy
+      = \frac{1}{3} (e^{2} - 1) y^3 + 2 y \bigg \rvert_{y = 0}^{1}
+      = \frac{1}{3} (e^{2} - 1) + 2
+  \end{align*}
+
+  Frequently, the domain of integration will need to be determined, either from a geometric description or a picture.
+  For example, the domain of integration for the example is a rectangle with a corner at the origin and at the point $(2, 1)$.
+  \begin{figure}[h]
+    \centering \includegraphics{mech222/lecture_1a_example_domain.png}
+    \caption{A picture of the domain}
+  \end{figure}
+  Recall that the process for computing the iterated integrals is as follows:
+  \begin{enumerate}
+    \item Convert the region of integration into a an upper and lower bound for one variable in terms of the other(s).
+      This may be a piecewise function that needs to be split into multiple integrals.
+      These bounds will be used for the inner integral; note that they can only depend on the variables integrated in the outer integral(s).
+    \item Compute the inner integral, holding the other variables constant.
+      By convention, the inner integral is over the first differential variable, ie
+      $\int \limits_{a}^{b} \int \limits_{c(y)}^{d(y)} \int \limits_{e(x, y)}^{f(x, y)} g(x, y, z) \dz \dx \dy$
+      the inner integral would be over $z$.
+    \item Substitute in the upper and lower bounds, and repeat the integration over the next variable.\\
+      $\int \limits_{a}^{b} \int \limits_{c(y)}^{d(y)} \int \limits_{e(x, y)}^{f(x, y)} g(x, y, z) \dz \dx \dy$
+      would integrate over $x$ next, and then finish with $y$.
+  \end{enumerate}
+  \subsection*{Problems}
+  Compute the following iterated integrals.
+
+  \begin{enumerate}
+    \item $\int \limits_{0}^{1} \int \limits_{2}^{4} x e^{x} + y \dy \dx$\\
+      \newline
+      \newline
+    \item $\int \limits_{2}^{4} \int \limits_{0}^{1} x e^{x} + y \dx \dy$\\
+      (This result is not a coincidence)\\
+      \newline
+      \newline
+    \item $\int \limits_{0}^{1} \int \limits_{x}^{2 x} 5 x \dy \dx$\\
+      \newline
+      \newline
+    \item $\int \limits_{0}^{1} \int \limits_{0}^{e^{x}} \sin(e^x) \dy \dx$\\
+      \newline
+      \newline
+    \item Integrate $x^2 + 2 x y$ over the area with boundaries at $x = 0$, $x = 1$, $y = 0$, $y = x$.\\
+      \newline
+      \newline
+    \item Challenge $\int \limits_{0}^{1} \int \limits_{x}^{1} \sin(y^2) \dy \dx$\\
+      Hint: Try drawing the region; and deducing bounds for this integral with $x$ as the inner term.
+      ie, the inner integral will treat $y$ as a constant.\\
+      \newline
+      \newline
+  \end{enumerate}
 \end{document}
