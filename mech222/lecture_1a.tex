@@ -44,8 +44,9 @@
   \end{enumerate}
 
 \section*{Iterated Integrals}
-  Recall that to evaluate $\int \limits_{a}^{b} \int \limits_{c(y)}^{d(y)} f(x, y) \dx \dy$,
-  we can just compute $g(y) = \int \limits_{c(y)}^{d(y)} f(x, y) \dx$, and then the solution is $\int \limits_{a}^{b} g(y) \dy$.
+  Recall that to evaluate $\int \limits_{a}^{b} \int \limits_{c}^{d} f(x, y) \dx \dy$,
+  we can just compute $g(y) = \int \limits_{c}^{d} f(x, y) \dx$ with constant $y$,
+  and then the solution is $\int \limits_{a}^{b} g(y) \dy$.
 
   \subsection*{Example}
   \begin{align*}
@@ -100,8 +101,8 @@
       \newline
       \newline
     \item Challenge $\int \limits_{0}^{1} \int \limits_{x}^{1} \sin(y^2) \dy \dx$\\
-      Hint: Try drawing the region; and deducing bounds for this integral with $x$ as the inner term.
-      ie, the inner integral will treat $y$ as a constant.\\
+      Hint: Try drawing the region and deducing bounds for this integral with $x$ as the inner term.
+      ie, convert this integral to the form $\int \limits_{a}^{b} \int \limits_{c(y)}^{d(y)} \sin(y^2) \dx \dy$.\\
       \newline
       \newline
   \end{enumerate}
