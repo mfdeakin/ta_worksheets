@@ -19,26 +19,39 @@
 
 \begin{document}
 \section*{Integration Review - Substitution, Integration by Parts}
+  Recall the integration by parts formula:
+  $\int \limits_{a}^{b} u \dd{v} = u v \big \rvert_{a}^{b} - \int_{a}^{b} v \dd{u}$
+  Alternative: $u v \big \rvert_{a}^{b} = \int \limits_{a}^{b} \dd{(u v)} = \int \limits_{a}^{b} v \dd{u} + u \dd{v}$
   \subsection*{Problems}
   Compute the following integrals:
   \begin{enumerate}
     \item $\int \limits_{0}^{\pi / 4} e^{\tan(x) + 1} \sec^2(x) \dx$\\
       \newline
       \newline
+      \newline
+      \newline
 
     \item $\int \limits_{0}^{\pi / 4} e^{\tan(x) + y} \sec^2(x) \dx$\\
+      \newline
+      \newline
       \newline
       \newline
 
     \item $\int \limits_{0}^{1} e^{\tan(x) + y} \dy$\\
       \newline
       \newline
+      \newline
+      \newline
 
     \item $\int \limits_{0}^{1} x e^{x} + y \dx$\\
       \newline
       \newline
+      \newline
+      \newline
 
     \item Challenge: $\int \limits_{0}^{1} x^2 y^{x} \dx$\\
+      \newline
+      \newline
       \newline
       \newline
   \end{enumerate}
@@ -50,7 +63,7 @@
 
   \subsection*{Example}
   \begin{align*}
-    & \int \limits_{0}^{1} \int \limits_{0}^{2} e^{x} y^2 \dx \dy\\
+    & \int \limits_{0}^{1} \int \limits_{0}^{2} e^{x} y^2 + 1 \dx \dy\\
     & g(y) = \int \limits_{0}^{2} e^{x} y^2 + 1 \dx = e^x y^2 + x \bigg \rvert_{x = 0}^{2} = (e^{2} - e^{0}) y^2 + (2 - 0)
   \end{align*}
   Then
@@ -88,40 +101,59 @@
       \newline
       \newline
       \newline
+      \newline
+      \newline
+
     \item $\int \limits_{2}^{4} \int \limits_{0}^{1} x e^{x} + y \dx \dy$\\
       (This result is not a coincidence; it is an example of Fubini's theorem)\\
       \newline
       \newline
       \newline
+      \newline
+      \newline
+
     \item $\int \limits_{0}^{1} \int \limits_{x}^{2 x} 5 x \dy \dx$\\
       \newline
       \newline
       \newline
+      \newline
+      \newline
+
     \item $\int \limits_{0}^{1} \int \limits_{0}^{e^{x}} \sin(e^x) \dy \dx$\\
       \newline
       \newline
       \newline
+      \newline
+      \newline
+
     \item Integrate $f(x, y) = x^2 + 2 x y$ over the area with boundaries at $x = 0$, $x = 1$, $y = 0$, $y = x$.\\
-      \newline
-      \newline
-      \newline
+      \newpage
+
     \item Integrate $f(x, y) = \cos(x) y^{2} + y$ over the right triangle with vertices at the points $(0, 0)$, $(1, 0)$, and $(0, 1)$.\\
       \newline
       \newline
       \newline
+      \newline
+      \newline
+
     \item Integrate $f(x, y) = 3 x^2 \sqrt{1 - y^2}$ over the unit circle centered at the origin.\\
       Hint: Integrate over $x$ first\\
       \newline
       \newline
       \newline
+      \newline
+      \newline
+
     \item Integrate $f(x, y) = 1$ over the unit circle centered at the origin.\\
       Hint: Use a trigonometric substitution for the outer integral, and then apply trigonometric identities.\\
-      \newpage
+      \newline
+      \newline
+      \newline
+      \newline
+      \newline
+
     \item Challenge $\int \limits_{0}^{1} \int \limits_{x}^{1} \sin(y^2) \dy \dx$\\
       Hint: Try drawing the region and deducing bounds for this integral with $x$ as the inner term.
-      ie, convert this integral to the form $\int \limits_{a}^{b} \int \limits_{c(y)}^{d(y)} \sin(y^2) \dx \dy$.\\
-      \newline
-      \newline
-      \newline
+      ie, convert this integral to the form $\int \limits_{a}^{b} \int \limits_{c(y)}^{d(y)} \sin(y^2) \dx \dy$.
   \end{enumerate}
 \end{document}
