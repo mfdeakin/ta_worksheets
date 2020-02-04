@@ -1,5 +1,8 @@
 
-COMMON_SOURCES:=preamble_common.tex
+COMMON_SOURCES:=Makefile preamble_common.tex
+DOCUMENTS:=worksheet_1a.pdf worksheet_1b.pdf
 
-mech222/lecture_1a.pdf: mech222/lecture_1a.tex ${COMMON_SOURCES}
-	lualatex mech222/lecture_1a.tex
+all: ${DOCUMENTS}
+
+%.pdf: mech222/%.tex ${COMMON_SOURCES}
+	latexmk -pdf -pdflatex="lualatex -interaction=nonstopmode" -use-make mech222/$*.tex
