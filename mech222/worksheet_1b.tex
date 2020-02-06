@@ -19,13 +19,93 @@
 
 \begin{document}
 \section*{Integration in polar coordinates}
-\subsection*{Conversion of integrals}
-Integration in one set of coordinates can be simpler than integration in another set of coordinates.
-Thus, it can make sense to convert an integral between the two.
-This is done by substitution of variables.
+Recall that polar coordinates are defined as follows:
+\begin{align*}
+  x = r \cos(\theta), & \hspace{5mm} y = r \sin(\theta)\\
+  r = \sqrt{x^2 + y^2}, & \hspace{5mm} \theta = \arctan \left( \frac{y}{x} \right)
+\end{align*}
+To write an integral in polar form, we need three things:
+\begin{enumerate}
+  \item A function of polar coordinates, $\hat{f}(r, \theta)$
+  \item Boundaries for the polar coordinates
+  \item A differential area element
+\end{enumerate}
+For 1, given $f(x, y)$, we can compute $\hat{f}(r, \theta)$ as $f(r \cos(\theta), r \sin(\theta))$\\
+For 2, we need constraints for $r$, $\theta$, generally by drawing a picture and inspecting the geometry; ie, choose either r or thete as the outer integral, find the maximum and minimum values of it, then find the maximum and minimum values for the inner integral when holding the outer integral variable constant.
+Recall that these coordinates are periodic in $\theta$, so the boundaries on $\theta$ may only be implied.\\
+For 3, consider small area produced by slightly increasing $r$ and $\theta$:
+\begin{figure}[h]
+  \centering \includegraphics[width=100px]{mech222/worksheet_1b_polar_diff_elem.png}
+  \caption{Polar coordinates differential area element}
+\end{figure}
+This isn't a rigorous justification, but provides an intuitive explanation.
+However, this leaves out the detail that the order matters for this!
+Fubini's theorem lets us swap the order of $\dd{\theta}$ and $\dr$, but it doesn't take the additional $r$ term with it.
+That is:
+$$
+\int \int \hat{f}(r, \theta) \dd{A} = \int \int \hat{f}(r, \theta) r \dd{\theta} \dr = \int \int \hat{f}(r, \theta) r \dr \dd{\theta} \neq \int \int \hat{f}(r, \theta) \dr \, r \dd{\theta}
+$$
+The $r$ term must be included in the integral over the radial coordinate.
 
-For example, polar coordinates are defined as follows: $x = r \cos(\theta)$, $y = r \sin(\theta)$.
-Then $r = \sqrt{x^2 + y^2}$ and $\theta = \arctan \left( \frac{y}{x} \right)$.
-\section*{Mass and Center of Mass}
+\subsection*{Example}
+Integrate $f(x, y) = x^2 + 2 x y + y^2$ over the torus (donut) with inner radius of $1$ and outer radius of $2$.
 
+\begin{enumerate}
+  \item $\hat{f}(r, \theta) = f(r \cos(\theta), r \sin(\theta)) = r^2 ( 1 + 2 \cos(\theta) \sin(\theta) ) = r^2 (1 + \sin(2 \theta))$
+  \item There are no constraints on $\theta$ over the torus; so we arbitrarily choose $\theta_{min} = 0$ and $\theta_{max} = 2 \pi$ as this covers the entire domain exactly once.
+    $r$ ranges from $1$ to $2$ independently of $\theta$.
+  \item Our integral is then $\int \limits_{1}^{2} \int \limits_{0}^{2 \pi} r^2 (1 + \sin(2 \theta)) r \dd{\theta} \dr$
+\end{enumerate}
+\begin{align*}
+  & \int \limits_{1}^{2} \int \limits_{0}^{2 \pi} r^2 (1 + \sin(2 \theta)) r \dd{\theta} \dr
+    = \int \limits_{1}^{2} \int \limits_{0}^{2 \pi} r^3 (1 + \sin(2 \theta)) \dd{\theta} \dr
+    = \int \limits_{1}^{2} 2 \pi r^3 \dr
+    = \frac{1}{2} \pi r^4 \bigg \rvert_{1}^{2}
+    = \frac{1}{2} \pi (16 - 1)
+\end{align*}
+Compare this to computing the integral in Cartesian coordinates, which requires 4 separate integrals.
+
+\subsection*{Problems}
+First, draw the regions to be integrated over.
+Clearly label the boundaries and their equations for one of the polar variables (ie, for a cardiod, the boundary equation is $r = 2 (1 - \cos(\theta))$).
+Use polar coordinates to compute the following integrals.
+\begin{enumerate}
+  \item $f(x, y) = 1$, $D = \set{(r, \theta) | 0 \leq r < 5, 0 < \theta < 2 \pi}$ is the radius $5$ ball\\
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+  \item $f(x, y) = 5 x^6 + 15 x^4 y^2 + 15 x^2 y^4 + 5 y^4$, $D = \set{(r, \theta) | 0 \leq r < 1, 0 < \theta < 2 \pi}$ is the unit ball.
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+  \item $\hat{f}(r, \theta) = \frac{\sin(\theta)}{r}$, $D$ is the torus with inner radius 1 and outer radius 2.
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+  \item $f(x, y) = \frac{x}{x^2 + y^2}$, $D$ is the cardiod defined by $r = 1 - \cos(\theta)$.
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+  \item $f(x, y) = \frac{y^2}{x}$, $D$ is the right triangle with vertices $(0, 0)$, $(1, 0)$, $(1, 1)$.
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+  \item $f(x, y) = e^{x^2} \frac{x}{\sqrt{x^2 + y^2}}$,
+    $D$ is the wedge between the unit circle and the rays from the origin at $\theta = 0$ and $\theta = \frac{2}{3} \pi$.
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+\end{enumerate}
 \end{document}
