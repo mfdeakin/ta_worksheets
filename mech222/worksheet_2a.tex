@@ -1,0 +1,101 @@
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage{fancyhdr}
+\usepackage[margin=1.0in, left=0.5in, right=0.5in, top=1.25in, headsep=10mm, headheight=15mm]{geometry}
+\usepackage{graphicx}
+
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+
+\pagestyle{fancy}
+\rhead{Mech 222 Mathematics Worksheets\\ Lectures 4, 5}
+
+\input{preamble_common.tex}
+
+\begin{document}
+\section*{Mass Integrals}
+Given an object covering area $A$, we can compute the mass by integrating its density:
+$$
+m = \int_A \rho(x, y) \dd{A}
+$$
+We can compute it's centre of mass by integrating over all points in the area weighted by the density, and then dividing by the total mass:
+\begin{align*}
+\bar{x} = &\int_A \frac{x \rho(x, y)}{m} \dd{A} = \frac{1}{m} \int_A x \rho(x, y) \dd{A}\\
+\bar{y} = &\frac{1}{m} \int_A y \rho(x, y) \dd{A}
+\end{align*}
+Given a point around which the object is rotating, we can compute it's moment of inertia with
+$$
+I = \int_A \rho(x, y) ((x - x_r)^2 + (y - y_r)^2) \dd{A}
+$$
+
+Given a velocity through a surface and the density, we can compute the mass flow rate as
+$$
+\dot{m} = \int_A v(x, y) \rho(x, y) \dd{A}
+$$
+
+\subsection*{Problems}
+Compute the following quantites for the objects specified:
+\begin{enumerate}
+  \item The mass of a unit square (edge lengths of 1) centered at the origin with density $\rho(x, y) = x^2 + 2 x y + y^2 + 1$\\
+    \newline
+    \newline
+    \newline
+    \newline
+  \item The centre of mass of a unit square centered at the origin with density $\rho(x, y) = x^2 + x - y^2 + 2$\\
+    \newline
+    \newline
+    \newline
+    \newline
+  \item The centre of mass of a NACA airfoil with constant density $\rho$ and shape defined by
+    $y_{top} = 5 [0.3 \sqrt{x} - 0.1 x - 0.4 x^2 + 0.3 x^3 - 0.1 x^4]$ and
+    $y_{bottom} = -5 [0.3 \sqrt{x} - 0.1 x - 0.4 x^2 + 0.3 x^3 - 0.1 x^4]$ where $x$ ranges from $0$ to $1$.\\
+    \newline
+    \newline
+    \newline
+    \newline
+  \item The moment of inertia of a thin rod of length $L$ and constant density with rotation axis through its center.
+    Also compute it for the rotation axis at one of it's ends.\\
+    \newline
+    \newline
+    \newline
+    \newline
+  \item The moment of inertia of a disk of radius $R$ and constant density with rotation axis at it's center.\\
+    \newline
+    \newline
+    \newline
+    \newline
+\end{enumerate}
+
+\section*{Triple Integrals}
+This is a generalization of double integrals.
+Consider
+$$
+\int_V f(x, y, z) \dd{V} = \int_{x_0}^{x_1} \int_{y_0(x)}^{y_1(x)} \int_{z_0(x, y)}^{z_0(x, y)} f(x, y, z) \dz \dy \dx
+$$
+In the same manner as with double integrals, we can compute this as follows:
+\begin{align*}
+  g(x, y) = &\int_{z_0(x, y)}^{z_0(x, y)} f(x, y, z) \dz\\
+  h(x) = &\int_{y_0(x)}^{y_1(x)} g(x, y) \dy\\
+  \int_V f(x, y, z) \dd{V} = &\int_{x_0}^{x_1} h(x) \dx
+\end{align*}
+Note that Fubini's theorem still applies!
+So long as any ordering these integrals results in a finite number, we can switch the order to get the same result!
+
+Finally, all of the mass integrals also generalize to 3D (or really to any dimension),
+i.e. the integrals all integrate over the volume rather than the area,
+the moment of inertia integral adds in a $(z - z_r)^2$ term for the length from the rotation axis,
+and $\bar{z}$ is computed in the same manner as $\bar{x}$ and $\bar{y}$.
+\subsection*{Problems}
+Compute the following quantities
+\begin{enumerate}
+  \item The mass and centre of mass of a unit sphere centered at the origin with density $\rho(x, y, z) = x^2 + 3 z + 3$\\
+    \newline
+    \newline
+\end{enumerate}
+
+\end{document}
