@@ -1,0 +1,84 @@
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage{fancyhdr}
+\usepackage[margin=1.0in, left=0.5in, right=0.5in, top=1.25in, headsep=10mm, headheight=15mm]{geometry}
+\usepackage{graphicx}
+
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+
+\pagestyle{fancy}
+\rhead{Mech 222 Mathematics Worksheets\\ Lecture 13, 14}
+
+\input{preamble_common.tex}
+
+\begin{document}
+\section*{Critical Points and Optimization}
+Critical points occur when either all of the partial derivatives go to zero or at least one doesn't exist.
+e.g. $f(x, y, z) = \sqrt{|x|} \cos(x) y^2 + y $ has critical points when $x = 0$ and when $|x|^2 \tan(x) = \frac{x}{2}$, $y = 0$
+
+Classification of critical points is done by applying the second derivative test.\\
+Define $D = f_{xx}(x_c, y_c) f_{yy}(x_c, y_c) - f_{xy}(x_c, y_c)^2$\\
+Then if
+\begin{enumerate}
+  \item $D > 0$ and $f_{xx}(x_c, y_c) > 0$, then $(x_c, y_c)$ is a local minimum
+  \item $D > 0$ and $f_{xx}(x_c, y_c) < 0$, then $(x_c, y_c)$ is a local maximum
+  \item $D < 0$, then $(x_c, y_c)$ is a saddle point
+  \item $D = 0$, then the second derivative test can't classify the point
+\end{enumerate}
+\section*{Constrained Optimization and Lagrange Multipliers}
+If we're optimizing on a bounded region, e.g. $x^2 + y^2 + z^2 \leq 1$,
+we also need to consider what happens on the boundary in addition to the location of critical points.
+Recall that the gradient gives the direction of maximum increase of the function we're optimizing,
+and that the function is flat in directions perpendicular to the gradient.
+Then if we can find points on the boundary where the gradient is perpendicular to the boundary,
+we'll have a critical point in the lower dimensional region of the boundary.
+
+More directly, given a boundary $g(x, y, z) = c$ and a function $f(x, y, z)$ to optimize,
+we need to find points $(x_c, y_c, z_c)$ s.t. $\nabla f(x_c, y_c, z_c) = \lambda \nabla g(x_c, y_c, z_c)$ for some real $\lambda$.
+Note that this is only for one constraint. When multiple constraints $g$ and $h$ hold, we need to find points s.t.
+$\nabla f(x_c, y_c, z_c) = \lambda \nabla g(x_c, y_c, z_c) + \mu h(x_c, y_c, z_c)$ for some real $\lambda, \mu$.
+This can be visualized as the intersection of two surfaces; generally there's an angle between the surfaces at any point,
+if the gradient points in that angle and not along the curve of intersection, we have a potential max or min.
+\section*{Problems}
+\begin{enumerate}
+\item Compute and classify the critical points of $f(x, y) = x^4 - 2 x^2 y^2 + y^4$.
+  Then compute the global max and min in the region where $g(x, y) = x^2 + y^2 \leq 1$.
+  \newpage
+\item Compute and classify the critical points of $f(x, y) = e^{x y}$.
+  Then compute the global max and min in $x, y > 0$, $x^3 + y^3 - 16 \leq 0$
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+\item Find the points on the surface $g(x, y, z) = x y^2 z^3 = 8$ which are closest to the origin.
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+\item Find the maximum and minimum heights ($z$) of the curve of intersection of the plane $2 x + y - z = 3$ and the cylinder $2 x^2 + y^2 = 4$.
+\end{enumerate}
+\end{document}
