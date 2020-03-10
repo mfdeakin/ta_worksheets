@@ -1,0 +1,85 @@
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage{fancyhdr}
+\usepackage[margin=1.0in, left=0.5in, right=0.5in, top=1.25in, headsep=10mm, headheight=15mm]{geometry}
+\usepackage{graphicx}
+
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+
+\pagestyle{fancy}
+\rhead{Mech 222 Mathematics Worksheets\\ Lecture 16, 17}
+
+\input{preamble_common.tex}
+
+\begin{document}
+\section*{Surface Parameterization}
+There are two ways of writing a surface in parametric form:
+\begin{enumerate}
+\item Writing it in vector form, ie $r(s, t) = x(s, t) \hat{i} + y(s, t) \hat{j} + z(s, t) \hat{k}$. This is the parametric form.
+\item Solve the equation for one of the variables, $z = f(x, y)$.
+  This is a special case of the parametric form $r(s, t) = s \hat{i} + t \hat{j} + f(s, t) \hat{k}$, it's called the graph form of the surface.
+\end{enumerate}
+Parameterizing a surface is similar to parameterizing a curve; only with an extra dimension to consider.
+Similar tricks apply; remembering cylindrical and spherical coordinates can be very helpful!
+For planes, it's best to find two linearly independent vectors which are part of the plane.
+
+\section*{Surface Area}
+In parametric form $r(s, t)$, the surface area can be computed as $\iint_D |r_u \times r_v| \dd{A}$.
+In graph form, the surface area can be computed as $\iint_D \sqrt{1 + \left(\pderiv{z}{x}\right)^2 + \left(\pderiv{z}{y}\right)^2} \dd{A}$
+
+\section*{Problems}
+\begin{enumerate}
+\item Parameterize the plane defined by $4 x + 3 y - 2 z = 3$.
+  Compute the surface area over the square $0 \leq x \leq 1$, $0 \leq y \leq 1$.
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+\item Write in parametric form the surface of a cone of height $1$ and radius equal to the height.
+  Compute the surface area.
+  \newpage
+\item Parameterize the surface defined by $4 x^2 + \frac{1}{3} y^2 - z = 0$.
+  Write the integral (don't compute it) for the surface area for $0 \leq z \leq 1$.
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+\item {\bf Challenge:} Parameterize the surface defined by $z^2 + x^2 + y^2 + x y = 1$.
+  Write the integral (don't compute it) for the surface area.\\
+  Hint: Try rotating the x-y coordinate system by $\pm 45$ degrees.
+  A rotation matrix in 2D is given by
+  $$
+  \begin{pmatrix}
+    \cos(\theta) & \sin(\theta)\\
+    -\sin(\theta) & \cos(\theta)
+  \end{pmatrix}
+  $$
+  \newpage
+\end{enumerate}
+\end{document}
