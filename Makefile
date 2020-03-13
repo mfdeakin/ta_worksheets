@@ -1,6 +1,6 @@
 
 COMMON_SOURCES:=Makefile preamble_common.tex
-DOCUMENTS:=worksheet_1a.pdf worksheet_1b.pdf worksheet_2a.pdf worksheet_2b.pdf worksheet_4a.pdf worksheet_5a.pdf
+DOCUMENTS:=worksheet_1a.pdf worksheet_1b.pdf worksheet_2a.pdf worksheet_2b.pdf worksheet_4a.pdf worksheet_5a.pdf worksheet_5b.pdf
 
 all: ${DOCUMENTS}
 

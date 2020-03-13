@@ -1,0 +1,88 @@
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage{fancyhdr}
+\usepackage[margin=1.0in, left=0.5in, right=0.5in, top=1.25in, headsep=10mm, headheight=15mm]{geometry}
+\usepackage{graphicx}
+
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+
+\pagestyle{fancy}
+\rhead{Mech 222 Mathematics Worksheets\\ Lecture 18, 19}
+
+\input{preamble_common.tex}
+
+\begin{document}
+\section*{Surface Integrals}
+The integral of $f$ over a surface $D$ with parameterization $r(u, v) = (x(u, v), y(u, v), z(u, v))$ is computed as
+$\iint_D f(x, y, z) \dd{S} = \int_a^b \int_c^d f(r(u, v)) |r_u \times r_v| \dd{u} \dd{v}$
+
+Center of Mass of a surface: Given a density $\rho(x, y, z)$ over a surface $D$, we can compute the mass as
+$M = \iint_D \rho(x, y, z) \dd{S}$.
+Then we compute the center of mass in the same way as with volumes, just applied to surfaces:
+\begin{align*}
+  \bar{x} &= \iint x \frac{\rho(x, y, z)}{M} \dd{S} = \frac{1}{M} \int_a^b \int_c^d x(u, v) \rho(r(u, v)) |r_u \times r_v| \dd{u} \dd{v}\\
+  \bar{y} &= \iint y \frac{\rho(x, y, z)}{M} \dd{S} = \frac{1}{M} \int_a^b \int_c^d y(u, v) \rho(r(u, v)) |r_u \times r_v| \dd{u} \dd{v}\\
+  \bar{z} &= \iint z \frac{\rho(x, y, z)}{M} \dd{S} = \frac{1}{M} \int_a^b \int_c^d z(u, v) \rho(r(u, v)) |r_u \times r_v| \dd{u} \dd{v}
+\end{align*}
+\section*{Divergence and Curl}
+A vector field $F$ is defined like $F = f(x, y, z) \hat{i} + g(x, y, z) \hat{j} + h(x, y, z) \hat{k}$.\\
+The {\bf divergence} of a vector field is given by the dot product of the
+$\nabla = \pderiv{}{x} \hat{i} + \pderiv{}{y} \hat{j} + \pderiv{}{z} \hat{k}$ operator and $F$, ie
+$\nabla \cdot F = \pderiv{f}{x} + \pderiv{g}{y} + \pderiv{h}{z}$.\\
+The {\bf curl} of a vector field is given by $\nabla \times F$.\\
+Note that we can define $\nabla = \pderiv{}{x_1} \hat{i}_1 + \pderiv{}{x_2} \hat{i}_2 + \pderiv{}{x_3} \hat{i}_3 + \pderiv{}{x_4} \hat{i}_4 + \ldots + \pderiv{}{x_n} \hat{i}_n$
+for arbitrary dimensions; though the curl only generalizes for 2 and 3 dimensions.
+\section*{Problems}
+\begin{enumerate}
+\item Compute the center of mass of the surface defined by $1 \leq z \leq 2$, $0 = x^2 + y^2 - z$.
+  \newpage
+\item Compute the surface integral of $f(x, y, z) = z^2$ over the upper hemisphere of the unit sphere centered at the origin.
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+  \newline
+\item Compute the divergence and curl of the following vector fields:
+  \begin{enumerate}
+  \item $2 x e^{x^2 + y^2} \hat{i} + 2 y e^{x^2 + y^2} \hat{j}$
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+  \item $x y^2 \hat{i} - \frac{2}{3} y^3 \hat{j} + \hat{k}$
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+  \item $(-y z \sin(2 x) - x^2 y) \hat{i} + (z \cos^2(x)) \hat{j} + (e^{z^2} + y \cos^2(x)) \hat{k}$
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+    \newline
+  \end{enumerate}
+\end{enumerate}
+\end{document}
