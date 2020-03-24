@@ -31,16 +31,18 @@ Then we compute the center of mass in the same way as with volumes, just applied
   \bar{z} &= \iint z \frac{\rho(x, y, z)}{M} \dd{S} = \frac{1}{M} \int_a^b \int_c^d z(u, v) \rho(r(u, v)) |r_u \times r_v| \dd{u} \dd{v}
 \end{align*}
 \section*{Divergence and Curl}
-A vector field $F$ is defined like $F = f(x, y, z) \hat{i} + g(x, y, z) \hat{j} + h(x, y, z) \hat{k}$.\\
+A vector field $F$ is defined like $F = \left( f(x, y, z), g(x, y, z), h(x, y, z) \right)$.\\
 The {\bf divergence} of a vector field is given by the dot product of the
-$\nabla = \pderiv{}{x} \hat{i} + \pderiv{}{y} \hat{j} + \pderiv{}{z} \hat{k}$ operator and $F$, ie
+$\nabla = \left( \pderiv{}{x}, \pderiv{}{y}, \pderiv{}{z} \right) = \pderiv{}{x} \hat{i} + \pderiv{}{y} \hat{j} + \pderiv{}{z} \hat{k}$
+operator (called {\bf del} or {\bf nabla}) and $F$, ie
 $\nabla \cdot F = \pderiv{f}{x} + \pderiv{g}{y} + \pderiv{h}{z}$.\\
-The {\bf curl} of a vector field is given by $\nabla \times F$.\\
+The {\bf curl} of a vector field is given by $\nabla \times F$; ie
+$\left( \pderiv{h}{y} - \pderiv{g}{z} \right) \hat{i} + \left( \pderiv{f}{z} - \pderiv{h}{x} \right) \hat{j} + \left( \pderiv{g}{x} - \pderiv{f}{y} \right) \hat{k}$.\\
 Note that we can define $\nabla = \pderiv{}{x_1} \hat{i}_1 + \pderiv{}{x_2} \hat{i}_2 + \pderiv{}{x_3} \hat{i}_3 + \pderiv{}{x_4} \hat{i}_4 + \ldots + \pderiv{}{x_n} \hat{i}_n$
 for arbitrary dimensions; though the curl only generalizes for 2 and 3 dimensions.
 \section*{Problems}
 \begin{enumerate}
-\item Compute the center of mass of the surface defined by $1 \leq z \leq 2$, $0 = x^2 + y^2 - z$.
+\item Compute the center of mass of the surface defined by $1 \leq z \leq 2$, $0 = x^2 + y^2 - z$ with uniform density $\rho$.
   \newpage
 \item Compute the surface integral of $f(x, y, z) = z^2$ over the upper hemisphere of the unit sphere centered at the origin.
   \newline

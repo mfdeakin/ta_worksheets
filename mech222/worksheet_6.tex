@@ -1,0 +1,56 @@
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\usepackage{fancyhdr}
+\usepackage[margin=1.0in, left=0.5in, right=0.5in, top=1.25in, headsep=10mm, headheight=15mm]{geometry}
+\usepackage{graphicx}
+
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+
+\pagestyle{fancy}
+\rhead{Mech 222 Mathematics Worksheets\\ Lecture 18, 19}
+
+\input{preamble_common.tex}
+
+\begin{document}
+\section*{Flux Integrals}
+Flux integrals, or surface integrals of vector fields are computed with either the unit normal vector, or by a surface parameterization.
+Given a vector field $F(x, y, z)$, and a surface satisfying $g(x, y, z) = c$, we first compute the normal vector as
+$\hat{n} = \frac{\nabla g}{||\nabla g||}$, then we can compute the flux integral as
+$$
+\iint_S \vec{F} \cdot \vec{\dd{S}} = \iint_S \vec{F} \cdot \hat{n} \dd{S} = \iint_S \vec{F} \cdot \frac{\nabla g}{||\nabla g||} \dd{S}
+$$
+Given a parameterization $r(u, v) = (x(u, v), y(u, v), z(u, v))$ of the surface, we need to compute the scaled normal vector
+$\vec{n} = r_u \times r_v$.
+This scaling accounts for the change of scale when integrating $\vec{F}(x(u, v), y(u, v), z(u, v))$ in terms of $u$ and $v$.
+We then compute the flux integral as
+$$
+\iint_S \vec{F} \cdot \dd{S} = \iint_S \vec{F}(x(u, v), y(u, v), z(u, v)) \cdot (r_u(u, v) \times r_v(u, v)) \dd{u} \dd{v}
+$$
+Note that we need to take care with the direction of $r_u \times r_v$; or we may introduce an undesired negative;
+like $\hat{n}$, it should point outwards.
+
+\section*{Divergence Theorem}
+The divergence theorem lets us reformulate volume integrals into flux integrals, and flux integrals into volume integrals.
+Given a volume $E$, its surface $S$, and a vector field $\vec{F}$, the divergence theorem tells us
+$$
+\iint_S \vec{F} \cdot \vec{\dd{S}} = \iiint_V \nabla \cdot \vec{F} \dd{V}
+$$
+\section*{Problems}
+\begin{enumerate}
+\item Compute the flux through the region of the plane $-2 x + 4 y + 4 z = 6$ with $0 \leq x \leq 1$, $0 \leq y \leq 2 x$,
+  where $F = \frac{3}{2} e^{x} \hat{i} + 9 z \hat{j} + 9 y \hat{k}$
+\newpage
+\item Compute $\iint_S \vec{F} \cdot \vec{\dd{S}}$ where $F = y \hat{j} - z \hat{k}$ and $S$ is the surface given by the paraboloid
+  $y = x^2 + z^2$, $0 \leq y \leq 1$, and the disk $x^2 + z^2 \leq 1$ at $y = 1$.
+\newpage
+\item Compute the flux of $F = x \hat{i} + y \hat{j} + z \hat{k}$ through the cylinder $x^2 + y^2 = 1$ with $0 \leq z \leq 2$ with both the flux integral and Divergence Theorem.
+\newpage
+\item Compute the flux out of the unit sphere of $F = x^2 \hat{i} + y^2 \hat{j} + z^2 \hat{k}$ using both the flux integral and Divergence Theorem
+\end{enumerate}
+\end{document}
